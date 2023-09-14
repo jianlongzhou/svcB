@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-b
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: service-b
+  template:
+    metadata:
+      labels:
+        app: service-b
+    spec:
+      containers:
+        - name: svc-b
+          image: ccr.ccs.tencentyun.com/k8s-env/svc-b:v1
+          ports:
+            - containerPort: 8081
